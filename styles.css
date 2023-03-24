@@ -1,3 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+
+/* Variáveis */
+:root {
+  --Red: hsl(0, 100%, 66%);
+  --White: hsl(0, 0%, 100%);
+  --Light-gray: hsl(270, 3%, 87%);
+  --Dark-gray: hsl(279, 6%, 55%);
+  --Dark-violet: hsl(278, 68%, 11%);
+}
+
+/* Padrão */
+* {
+  font-family: "Space Grotesk", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Lado esquerdo */
+.left-side {
+  min-height: 100vh;
+  width: 40%;
+  background-image: url("images/bg-main-desktop.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.cards {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  left: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.card-front {
+  position: relative;
+  transform: translateX(-100px);
+}
+
+#logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.card-front h1 {
+  position: absolute;
+  color: var(--White);
+  bottom: 5rem;
+  left: 1rem;
+  letter-spacing: 2px;
+}
+
+.card-info {
+  position: absolute;
+  bottom: 2rem;
+  left: 1rem;
+  right: 3rem;
+  display: flex;
+  color: var(--White);
+  justify-content: space-between;
+}
+
+.card-back {
+  position: relative;
+}
+
+.error {
+  border: 2px solid var(--Red);
+}
+
+.error_message {
+  gap: 0;
+}
+
+.error_message::after {
+  content: "cant't be blank";
+  color: var(--Red);
+  margin-top: 0.2rem;
+}
+
+.card-back span {
+  position: absolute;
+  right: 3.5rem;
+  top: 7rem;
+  color: var(--Light-grayish-violet);
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -5,3 +112,5 @@
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
+
+/* Lado direito */
