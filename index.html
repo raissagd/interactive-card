@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
@@ -12,122 +11,126 @@
       href="./images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="styles.css" />
-    <title>Interactive card form</title>
+    <title>Forms com cartão interativo</title>
   </head>
-
   <body>
-    <div class="main-container">
-      <!-- Lado esquerdo -->
-      <div class="left-side">
-        <div class="cards">
-          <!-- Cartão de frente -->
-          <div class="card-front">
-            <img src="./images/card-logo.svg" alt="front-card" id="logo" />
-            <div class="card-container">
+    <main>
+      <div class="main-container">
+        <!-- Lado esquerdo -->
+        <div class="left-side">
+          <div class="cards">
+            <!-- Cartão de frente -->
+            <div class="front-card">
               <img
-                src="./images/bg-card-front.png"
-                alt="front-card"
+                src="./images/card-logo.svg"
+                alt="card-logo"
                 class="card-logo"
               />
-              <h1 id="number">0000 0000 0000 0000</h1>
-              <div class="card-info">
-                <span id="name">Jane Appleseed</span>
-                <span id="month">00</span>
-                /
-                <span id="year">00</span>
+              <div class="card-container">
+                <img src="./images/bg-card-front.png" alt="front-card" />
+                <h1 id="number">0000 0000 0000 0000</h1>
+                <div class="card-info">
+                  <span id="name">CECÍLIA GUEDES</span>
+                  <span id="date">
+                    <span id="month">00</span>
+                    /
+                    <span id="year">00</span>
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- Cartão de trás -->
-          <div class="card-back">
-            <img src="./images/bg-card-back.png" alt="back-card" />
-            <span id="cvc">000</span>
+            <!-- Cartão de trás -->
+            <div class="back-card">
+              <img src="./images/bg-card-back.png" alt="back-card" />
+              <span id="cvc">000</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Lado direito -->
-      <div class="right-side">
-        <form>
-          <!-- Nome do dono do cartão -->
-          <div class="input-one">
-            <label for="card-name">Cardholder name</label>
-            <input
-              type="text"
-              placeholder="e.g. Jane
-            Appleseed"
-              required
-            />
-          </div>
-          <!-- Número do cartão -->
-          <div class="input-two">
-            <label for="card-number">Card number</label>
-            <input
-              type="number"
-              oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)"
-              minlngth="16"
-              maxlength="16"
-              placeholder="e.g. 1234 5678 9123 0000"
-              required
-            />
-          </div>
-          <!-- Outras informações sobre o cartão -->
-          <div class="card-info">
-            <div class="card-date">
-              <label for="card-date">Exp. Date (MM/YY)</label>
-              <div class="double-inputs">
-                <div class="card-month">
-                  <input
-                    type="number"
-                    placeholder="MM"
-                    oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                    minlength="2"
-                    maxlength="2"
-                    required
-                  />
+        <!-- Lado direito -->
+        <div class="right-side">
+          <form>
+            <!-- Nome do dono do cartão -->
+            <div class="grid-1">
+              <label for="card-name">Nome escrito no cartão</label>
+              <input
+                type="text"
+                placeholder="e.g. Jane Appleseed"
+                id="card-name"
+                required
+              />
+            </div>
+            <!-- Número do cartão -->
+            <div class="grid-2">
+              <label for="card-number">Número do cartão</label>
+              <input
+                type="number"
+                oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                minlength="16"
+                maxlength="16"
+                placeholder="e.g. 1234 5678 9123 0000"
+                id="card-number"
+                required
+              />
+            </div>
+            <!-- Outras informações sobre o cartão -->
+            <div class="card-information">
+              <div id="card-date">
+                <label for="card-date">Validade (MM/AA)</label>
+                <div class="two-inp">
+                  <div>
+                    <input
+                      type="number"
+                      placeholder="MM"
+                      oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      minlength="2"
+                      maxlength="2"
+                      id="card-month"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <input
+                      oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      type="number"
+                      minlength="2"
+                      maxlength="2"
+                      placeholder="YY"
+                      id="card-year"
+                      required
+                    />
+                  </div>
                 </div>
-                <div class="card-year"></div>
+              </div>
+              <!-- CVC do cartão -->
+              <div class="grid-4">
+                <label for="card-cvc">CVC</label>
                 <input
-                  oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                   type="number"
-                  minlength="2"
-                  maxlength="2"
-                  placeholder="YY"
+                  oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  maxlength="3"
+                  placeholder="e.g. 123"
+                  id="card-cvc"
                   required
                 />
               </div>
             </div>
+            <button id="submit-btn" type="submit">Confirmar</button>
+          </form>
+          <!-- Fim do forms -->
 
-            <div class="input-four">
-              <label for="card_cvc">CVC</label>
-              <input
-                type="number"
-                oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                maxlength="3"
-                placeholder="e.g. 123"
-                required
-              />
-            </div>
+          <!-- Mensagem mostrada quando o forms é enviado com sucesso-->
+          <div class="successful hidden">
+            <img src="./images/icon-complete.svg" alt="Completed" />
+            <h1>Muito obrigado!</h1>
+            <p>Adicionamos as informações do seu cartão com sucesso.</p>
+            <button id="continue">Continuar</button>
           </div>
-          <button id="submit-button" type="submit">Confirm</button>
-        </form>
-
-        <!-- Mensagm final -->
-        <div class="successful">
-          <img src="images/icon-complete.svg" alt="Completed" />
-          <h1>Thank you!</h1>
-          <p>We've added your card details</p>
-          <button>Continue</button>
         </div>
       </div>
+    </main>
 
-      <div class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by <a href="#">Your Name Here</a>.
-      </div>
-    </div>
+    <script src="https://unpkg.com/imask"></script>
     <script src="app.js"></script>
   </body>
 </html>

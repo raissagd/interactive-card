@@ -34,13 +34,12 @@ body {
 .left-side {
   min-height: 100vh;
   width: 40%;
-  background-image: url("images/bg-main-desktop.png");
+  background-image: url("./images/bg-main-desktop.png");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
 }
-
 .cards {
   position: absolute;
   top: 50%;
@@ -51,25 +50,24 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.card-front {
+.front-card {
   position: relative;
   transform: translateX(-100px);
 }
 
-#logo {
+.card-logo {
   position: absolute;
   top: 1rem;
   left: 1rem;
 }
 
-.card-front h1 {
+#number {
   position: absolute;
   color: var(--White);
   bottom: 5rem;
   left: 1rem;
   letter-spacing: 2px;
 }
-
 .card-info {
   position: absolute;
   bottom: 2rem;
@@ -80,7 +78,7 @@ body {
   justify-content: space-between;
 }
 
-.card-back {
+.back-card {
   position: relative;
 }
 
@@ -88,29 +86,202 @@ body {
   border: 2px solid var(--Red);
 }
 
-.error_message {
+.error-message {
   gap: 0;
 }
 
-.error_message::after {
+.error-message::after {
   content: "cant't be blank";
   color: var(--Red);
   margin-top: 0.2rem;
 }
 
-.card-back span {
+#cvc {
   position: absolute;
   right: 3.5rem;
   top: 7rem;
-  color: var(--Light-grayish-violet);
-}
-
-.attribution {
-  font-size: 11px;
-  text-align: center;
-}
-.attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--Light-gray);
 }
 
 /* Lado direito */
+.right-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.right-side form {
+  display: grid;
+  gap: 1rem;
+  width: 350px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+label {
+  color: var(--Dark-violet);
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+}
+
+input {
+  padding: 0.5rem;
+  font-size: 18px;
+  border: 1px solid var(--Dark-gray);
+  border-radius: 6px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+
+  margin: 0;
+}
+input::placeholder {
+  font-family: inherit;
+  color: var(--Dark-violet);
+}
+
+input:focus {
+  outline-color: hsl(249, 99%, 64%);
+}
+
+.grid-1 {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2 span;
+}
+
+.grid-2 {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2 span;
+}
+
+.grid-4 {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 span;
+}
+
+.card-information {
+  display: flex;
+  grid-column: 2 span;
+  gap: 1rem;
+}
+
+#card-date {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 span;
+}
+
+#card-date .two-inp {
+  display: flex;
+}
+
+.two-inp div {
+  flex-direction: column;
+}
+
+#card-date div input {
+  width: 70px;
+  margin-inline: 0.5rem;
+  margin-left: 0;
+}
+
+#card-cvc {
+  width: 100%;
+}
+
+form button {
+  grid-column: 2 span;
+  font-size: 18px;
+  height: 50px;
+  color: var(--White);
+  border-radius: 6px;
+  background: var(--Dark-violet);
+  cursor: pointer;
+}
+
+/* Mensagem em caso de envio bem sucedido */
+.successful {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.successful h1 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.successful p {
+  font-size: 18px;
+  color: var(--Dark-violet);
+}
+
+.successful button {
+  color: var(--White);
+  width: 100%;
+  border-radius: 6px;
+  padding: 1rem;
+  font-size: 18px;
+  background-color: var(--Dark-violet);
+  cursor: pointer;
+}
+
+/* Responsividade */
+@media screen and (max-width: 1023px) {
+  .front-card .card-container img,
+  .front-card,
+  .back-card img,
+  .back-card {
+    width: 300px;
+  }
+  .card-logo {
+    width: 50px;
+  }
+  #number {
+    font-size: 1.1rem;
+  }
+  #cvc {
+    top: 42%;
+    right: 12%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+  }
+  .front-card .card-container img,
+  .front-card,
+  .back-card img,
+  .back-card {
+    width: 280px;
+  }
+  .left-side {
+    width: 100%;
+    min-height: 30vh;
+    background-image: url("./images/bg-main-mobile.png");
+  }
+  .cards {
+    flex-direction: column-reverse;
+    left: 61%;
+    top: 60%;
+    gap: 0;
+  }
+  .back-card {
+    transform: translateY(70px);
+  }
+  .front-card {
+    z-index: 100;
+  }
+  .right-side {
+    margin-top: 6rem;
+  }
+}
